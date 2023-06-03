@@ -5,11 +5,31 @@ import java.util.Objects;
 public class Employee {
     public String firstName;
     public String lastName;
+    public Integer salary;
+    public Integer department;
 
 
-    public Employee(String firstName, String lastName) {
+    public Employee(String firstName, String lastName, Integer salary, Integer department) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.salary=salary;
+        this.department=department;
+    }
+
+    public Integer getSalary() {
+        return salary;
+    }
+
+    public void setSalary(Integer salary) {
+        this.salary = salary;
+    }
+
+    public Integer getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Integer department) {
+        this.department = department;
     }
 
     public String getFirstName() {
@@ -22,6 +42,7 @@ public class Employee {
     public String getFullName() {
         return firstName + " " + lastName;
     }
+
 
     @Override
     public boolean equals(Object o) {

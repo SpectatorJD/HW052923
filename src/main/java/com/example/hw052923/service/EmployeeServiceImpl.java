@@ -18,7 +18,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee add(String firstName, String lastName) {
-        Employee employee = new Employee( firstName, lastName);
+        return null;
+    }
+
+    @Override
+    public Employee add(String firstName, String lastName, Integer department, Integer salary) {
+        Employee employee = new Employee( firstName, lastName, department, salary);
         if(employees.containsKey(employee.getFullName())){
             throw new EmployeeAlreadyAddedException();
         }
@@ -28,7 +33,17 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee remove(String firstName, String lastName) {
-        Employee employee = new Employee(firstName,lastName);
+        return null;
+    }
+
+    @Override
+    public Employee find(String firstName, String lastName) {
+        return null;
+    }
+
+    @Override
+    public Employee remove(String firstName, String lastName, Integer department, Integer salary) {
+        Employee employee = new Employee(firstName, lastName, department, salary);
         if(employees.containsKey(employee.getFullName())){
             return employees.remove(employee.getFullName());
 
@@ -37,8 +52,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee find(String firstName, String lastName) {
-        Employee employee= new Employee(firstName,lastName);
+    public Employee find(String firstName, String lastName, Integer department, Integer salary) {
+        Employee employee= new Employee(firstName, lastName, department, salary);
         if(employees.containsKey(employee.getFullName())){
             return employees.get(employee.getFullName());
         }
@@ -48,5 +63,10 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Collection<Employee> findAll() {
         return Collections.unmodifiableCollection(employees.values());
+    }
+
+    @Override
+    public Collection<Employee> getAll() {
+        return null;
     }
 }
