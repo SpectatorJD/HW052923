@@ -1,6 +1,10 @@
 package com.example.hw052923;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.Objects;
+
+import static org.apache.commons.lang3.StringUtils.capitalize;
 
 public class Employee {
     public String firstName;
@@ -10,8 +14,8 @@ public class Employee {
 
 
     public Employee(String firstName, String lastName, Integer salary, Integer department) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.firstName = capitalize(firstName.toLowerCase());
+        this.lastName = capitalize(lastName.toLowerCase());
         this.salary=salary;
         this.department=department;
     }
