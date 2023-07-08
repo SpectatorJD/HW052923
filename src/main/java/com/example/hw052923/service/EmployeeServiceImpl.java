@@ -4,7 +4,6 @@ import com.example.hw052923.Employee;
 import com.example.hw052923.exception.EmployeeNotFoundException;
 import com.example.hw052923.exception.exception.EmployeeAlreadyAddedException;
 import com.example.hw052923.exception.exception.InvalidateInputException;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -27,6 +26,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee add(String firstName, String lastName, Integer department, Integer salary) {
+        return null;
+    }
+
+    @Override
+    public Employee addEmployee(String firstName, String lastName, Integer department, Integer salary) {
 
         validateInput(firstName,lastName);
 
@@ -47,6 +51,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     public Employee find(String firstName, String lastName) {
         return null;
     }
+
 
 
     @Override
@@ -78,6 +83,11 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Collection<Employee> getAll() {
         return null;
+    }
+
+    @Override
+    public void addEmployee(Employee employee) {
+
     }
 
     private void validateInput(String firstName, String lastName) {
