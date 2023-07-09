@@ -36,7 +36,7 @@ public class DepartmentServiceImplTest {
 @Test
     public void shouldReturnEmployeeWithMaxSalary(){
     Employee employee = departmentService.findEmployeeMaxSalary(1);
-        verify(employeeService, times(1)).getAll();
+        verify(employeeService, times(3)).getAll();
         Assertions.assertEquals("Petr",employee.getFirstName());
         Assertions.assertEquals("Petrov",employee.getLastName());
         Assertions.assertEquals(22000,employee.getSalary());

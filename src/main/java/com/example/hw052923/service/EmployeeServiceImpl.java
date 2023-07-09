@@ -11,23 +11,11 @@ import java.util.*;
 import static org.apache.commons.lang3.StringUtils.isAlpha;
 
 @Service
-public abstract class EmployeeServiceImpl implements EmployeeService {
+public  class EmployeeServiceImpl implements EmployeeService {
 
-    private final Map<String, Employee> employees;
+    private Map<String, Employee> employees;
 
-    public EmployeeServiceImpl() {
-        this.employees = new HashMap<>();
-    }
 
-    @Override
-    public Employee add(String firstName, String lastName) {
-        return null;
-    }
-
-    @Override
-    public Employee add(String firstName, String lastName, Integer department, Integer salary) {
-        return null;
-    }
 
 
     @Override
@@ -43,20 +31,10 @@ public abstract class EmployeeServiceImpl implements EmployeeService {
         return employee;
     }
 
-    @Override
-    public Employee remove(String firstName, String lastName) {
-        return null;
-    }
-
-    @Override
-    public Employee find(String firstName, String lastName) {
-        return null;
-    }
-
 
 
     @Override
-    public Employee remove(String firstName, String lastName, Integer department, Integer salary) {
+    public Employee removeEmployee(String firstName, String lastName, Integer department, Integer salary) {
         validateInput(firstName,lastName);
         Employee employee = new Employee(firstName, lastName, department, salary);
         if (employees.containsKey(employee.getFullName())) {
@@ -66,13 +44,10 @@ public abstract class EmployeeServiceImpl implements EmployeeService {
         throw new EmployeeNotFoundException();
     }
 
-    @Override
-    public Employee findEmployee(String firstName, String lastName, Integer department, Integer salary) {
-        return null;
-    }
+
 
     @Override
-    public Employee find(String firstName, String lastName, Integer department, Integer salary) {
+    public Employee findEmployee(String firstName, String lastName, Integer department, Integer salary) {
         validateInput(firstName,lastName);
         Employee employee = new Employee(firstName, lastName, department, salary);
         if (employees.containsKey(employee.getFullName())) {
@@ -92,7 +67,7 @@ public abstract class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public void add(Employee employee) {
+    public void addEmployee(Employee employee) {
 
     }
 
@@ -103,4 +78,3 @@ public abstract class EmployeeServiceImpl implements EmployeeService {
         }
     }
 }
-

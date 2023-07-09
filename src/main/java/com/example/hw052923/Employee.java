@@ -12,6 +12,13 @@ public class Employee {
     public Integer salary;
     public Integer department;
 
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
     public Employee(String firstName, String lastName, Integer salary, Integer department) {
         this.firstName = capitalize(firstName.toLowerCase());
