@@ -29,14 +29,14 @@ public class DepartmentServiceImplTest {
 
 
     private List<Employee> employeeList(){
-        return  List.of(new Employee("Ivan", "Ivanov", 2000, 1),
-                new Employee("Petr", "Petrov", 22000, 1),
-                new Employee("Boris", "Britva", 12000, 1));
+        return  List.of(new Employee("Ivan", "Ivanov", 1, 2000),
+                new Employee("Petr", "Petrov", 1, 22000),
+                new Employee("Boris", "Britva", 1, 12000));
     }
 @Test
     public void shouldReturnEmployeeWithMaxSalary(){
     Employee employee = departmentService.findEmployeeMaxSalary(1);
-        verify(employeeService, times(3)).getAll();
+        verify(employeeService, times(1)).getAll();
         Assertions.assertEquals("Petr",employee.getFirstName());
         Assertions.assertEquals("Petrov",employee.getLastName());
         Assertions.assertEquals(22000,employee.getSalary());

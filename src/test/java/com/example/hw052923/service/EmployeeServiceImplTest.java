@@ -12,11 +12,11 @@ public class EmployeeServiceImplTest {
 
     @Test
     public void shouldAddEmployeeWhenNotExists(){
-        Employee employee = new Employee("Ivan", "Ivanov", 1000,1);
+        Employee employee = new Employee("Ivan", "Ivanov", 1,1000);
         employeeService.addEmployee(employee);
 
 
-        Employee createdNewEmployee = employeeService.findEmployee("Ivan", "Ivanov",1,1000);
+        Employee createdNewEmployee = employeeService.findEmployee("Ivan", "Ivanov");
         Assertions.assertEquals(employee, createdNewEmployee);
     }
 

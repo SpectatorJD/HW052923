@@ -13,62 +13,52 @@ import static org.apache.commons.lang3.StringUtils.isAlpha;
 @Service
 public  class EmployeeServiceImpl implements EmployeeService {
 
-    private Map<String, Employee> employees;
-
-
+    private final Map<String, Employee> storage = new HashMap<>();
 
 
     @Override
-    public  Employee addEmployee(String firstName, String lastName, Integer department, Integer salary) {
-
-        validateInput(firstName,lastName);
-
-        Employee employee = new Employee(firstName, lastName, department, salary);
-        if (employees.containsKey(employee.getFullName())) {
+    public Employee addEmployee(Employee employee) {
+        if (storage.containsKey(employee.getFirstName() + employee.getLastName())) {
             throw new EmployeeAlreadyAddedException();
         }
-        employees.put(employee.getFullName(), employee);
+        storage.put(employee.getFirstName() + employee.getLastName(), employee);
+
         return employee;
     }
 
-
-
     @Override
-    public Employee removeEmployee(String firstName, String lastName, Integer department, Integer salary) {
-        validateInput(firstName,lastName);
-        Employee employee = new Employee(firstName, lastName, department, salary);
-        if (employees.containsKey(employee.getFullName())) {
-            return employees.remove(employee.getFullName());
+    public Employee removeEmployee(String firstName, String lastName) {
+
+
+        if (!storage.containsKey(firstName + lastName)) {
+           throw new EmployeeNotFoundException();
 
         }
-        throw new EmployeeNotFoundException();
+        storage.remove(firstName+lastName);
+        return null;
     }
 
 
 
     @Override
-    public Employee findEmployee(String firstName, String lastName, Integer department, Integer salary) {
-        validateInput(firstName,lastName);
-        Employee employee = new Employee(firstName, lastName, department, salary);
-        if (employees.containsKey(employee.getFullName())) {
-            return employees.get(employee.getFullName());
+    public Employee findEmployee(String firstName, String lastName) {
+
+
+        if (!storage.containsKey(firstName + lastName)) {
+           throw new EmployeeNotFoundException();
         }
-        throw new EmployeeNotFoundException();
+        return storage.get(firstName + lastName);
     }
 
     @Override
     public Collection<Employee> findAll() {
-        return Collections.unmodifiableCollection(employees.values());
+        return null;
     }
+
 
     @Override
     public Collection<Employee> getAll() {
         return null;
-    }
-
-    @Override
-    public void addEmployee(Employee employee) {
-
     }
 
 

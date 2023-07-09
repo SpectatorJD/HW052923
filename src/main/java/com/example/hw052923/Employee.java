@@ -20,7 +20,7 @@ public class Employee {
         this.lastName = lastName;
     }
 
-    public Employee(String firstName, String lastName, Integer salary, Integer department) {
+    public Employee(String firstName, String lastName, Integer department, Integer salary) {
         this.firstName = capitalize(firstName.toLowerCase());
         this.lastName = capitalize(lastName.toLowerCase());
         this.salary=salary;
@@ -50,7 +50,7 @@ public class Employee {
     public String getLastName() {
         return lastName;
     }
-    public String getFullName() {
+     public String getFullName() {
         return firstName + " " + lastName;
     }
 
