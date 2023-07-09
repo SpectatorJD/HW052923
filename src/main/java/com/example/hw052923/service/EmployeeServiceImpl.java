@@ -11,7 +11,7 @@ import java.util.*;
 import static org.apache.commons.lang3.StringUtils.isAlpha;
 
 @Service
-public class EmployeeServiceImpl implements EmployeeService {
+public abstract class EmployeeServiceImpl implements EmployeeService {
 
     private final Map<String, Employee> employees;
 
@@ -29,8 +29,9 @@ public class EmployeeServiceImpl implements EmployeeService {
         return null;
     }
 
+
     @Override
-    public Employee addEmployee(String firstName, String lastName, Integer department, Integer salary) {
+    public  Employee addEmployee(String firstName, String lastName, Integer department, Integer salary) {
 
         validateInput(firstName,lastName);
 
@@ -66,6 +67,11 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
+    public Employee findEmployee(String firstName, String lastName, Integer department, Integer salary) {
+        return null;
+    }
+
+    @Override
     public Employee find(String firstName, String lastName, Integer department, Integer salary) {
         validateInput(firstName,lastName);
         Employee employee = new Employee(firstName, lastName, department, salary);
@@ -86,9 +92,10 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public void addEmployee(Employee employee) {
+    public void add(Employee employee) {
 
     }
+
 
     private void validateInput(String firstName, String lastName) {
         if (!(isAlpha(firstName) && isAlpha(lastName))) {

@@ -7,20 +7,26 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class EmployeeServiceImplTest {
-    private EmployeeService employeeService = new EmployeeServiceImpl();
+    private EmployeeService employeeService = new EmployeeServiceImpl() {
+        @Override
+        public void addEmployee(Employee employee) {
+
+        }
+    };
 @Test
     public void shouldAddEmployeeWhenNotExists(){
-        Employee employee = new Employee("Ivan", "Petrov", 1500,1);
-        employeeService.addEmployee(employee);
-        Employee createNewEmployee = employeeService.find("Ivan", "Petrov", 1, 1500);
-        Assertions.assertEquals(employee, createNewEmployee);
+        Employee employee = new Employee("Ivan", "Ivanov", 1000,1);
+        employeeService.add(employee);
+
+        Employee createdNewEmployee = employeeService.findEmployee("Ivan", "Ivanov",1,1000);
+        Assertions.assertEquals(employee, createdNewEmployee);
     }
     @Test
     public void shouldThrowExceptionWhenAddExisted(){
-        Employee employee = new Employee("Ivan", "Petrov", 1500,1);
+        Employee employee = new Employee("Ivan", "Petrov", 1000,1);
         employeeService.addEmployee(employee);
 
-        Assertions.assertThrows(EmployeeAlreadyAddedException.class, ()-> employeeService.add("Petrov", "Ivan",2,1500));
+        Assertions.assertThrows(EmployeeAlreadyAddedException.class, () -> employeeService.addEmployee(employee));
     }
 
 

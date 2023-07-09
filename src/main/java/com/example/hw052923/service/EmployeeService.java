@@ -7,12 +7,9 @@ import java.util.Collection;
 public interface EmployeeService    {
 
 
-    //Employee add(String firstName, String lastName);
-
     Employee add(String firstName, String lastName);
 
     Employee add(String firstName, String lastName, Integer department, Integer salary);
-
 
     Employee addEmployee(String firstName, String lastName, Integer department, Integer salary);
 
@@ -20,7 +17,10 @@ public interface EmployeeService    {
 
     Employee find(String firstName, String lastName);
 
+
     Employee remove(String firstName, String lastName, Integer department, Integer salary);
+
+    Employee findEmployee(String firstName, String lastName, Integer department, Integer salary);
 
     Employee find(String firstName, String lastName, Integer department, Integer salary);
 
@@ -28,6 +28,8 @@ public interface EmployeeService    {
 
     Collection<Employee> getAll();
 
+
+    void add(Employee employee);
 
     void addEmployee(Employee employee);
 }

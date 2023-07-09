@@ -14,7 +14,7 @@ import java.util.List;
 import static org.mockito.Mockito.*;
 
 public class DepartmentServiceImplTest {
-    private EmployeeServiceImpl employeeServiceImpl;
+    private EmployeeService employeeService;
 
 @InjectMocks
     private DepartmentService departmentService;
@@ -36,7 +36,7 @@ public class DepartmentServiceImplTest {
 @Test
     public void shouldReturnEmployeeWithMaxSalary(){
     Employee employee = departmentService.findEmployeeMaxSalary(1);
-   //verify(employeeService, times(1).getAll());
+        verify(employeeService, times(1)).getAll();
         Assertions.assertEquals("Petr",employee.getFirstName());
         Assertions.assertEquals("Petrov",employee.getLastName());
         Assertions.assertEquals(22000,employee.getSalary());
