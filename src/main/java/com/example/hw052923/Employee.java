@@ -1,14 +1,46 @@
 package com.example.hw052923;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.Objects;
 
-public class Employee {
-    private final String firstName;
-    private final String lastName;
+import static org.apache.commons.lang3.StringUtils.capitalize;
 
-    public Employee(String firstName, String lastName) {
+public class Employee {
+    public String firstName;
+    public String lastName;
+    public Integer salary;
+    public Integer department;
+
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public Employee(String firstName, String lastName, Integer department, Integer salary) {
+        this.firstName = capitalize(firstName.toLowerCase());
+        this.lastName = capitalize(lastName.toLowerCase());
+        this.salary=salary;
+        this.department=department;
+    }
+
+    public Integer getSalary() {
+        return salary;
+    }
+
+    public void setSalary(Integer salary) {
+        this.salary = salary;
+    }
+
+    public Integer getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Integer department) {
+        this.department = department;
     }
 
     public String getFirstName() {
@@ -18,6 +50,10 @@ public class Employee {
     public String getLastName() {
         return lastName;
     }
+     public String getFullName() {
+        return firstName + " " + lastName;
+    }
+
 
     @Override
     public boolean equals(Object o) {
