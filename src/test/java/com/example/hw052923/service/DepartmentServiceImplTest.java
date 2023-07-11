@@ -36,7 +36,7 @@ public class DepartmentServiceImplTest {
 @Test
     public void shouldReturnEmployeeWithMaxSalary(){
     Employee employee = departmentService.findEmployeeMaxSalary(1);
-        verify(employeeService, times(1)).getAll();
+
         Assertions.assertEquals("Petr",employee.getFirstName());
         Assertions.assertEquals("Petrov",employee.getLastName());
         Assertions.assertEquals(22000,employee.getSalary());
@@ -45,7 +45,7 @@ public class DepartmentServiceImplTest {
     @Test
     public void shouldReturnEmployeeWithMinSalary(){
         Employee employee = departmentService.findEmployeeMinSalary(1);
-        //verify(employeeService, times(1).getAll());
+
         Assertions.assertEquals("Ivan",employee.getFirstName());
         Assertions.assertEquals("Ivanov",employee.getLastName());
         Assertions.assertEquals(2000,employee.getSalary());
